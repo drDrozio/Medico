@@ -1,0 +1,57 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+  <header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">Online Multiple Disease Prediction</h1>
+        <h2 class="masthead-subheading mb-0">Your Online Physician</h2>
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+  <br>
+  <div class="row">
+    <div class="col">
+      <div class="col-md">
+        <div class="card text-center text-white  mb-3" id="total-orders">
+            <div class="card-header">
+              <h5 class="card-title">Total Patients</h5>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title"></h3>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="col-md">
+        <div class="card text-center text-white  mb-3" id="orders-delivered">
+            <div class="card-header">
+              <h5 class="card-title">Total Predictions</h5>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title"></h3>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="col-md">
+        <div class="card text-center text-white  mb-3" id="orders-pending">
+            <div class="card-header">
+              <h5 class="card-title">Total Diseases</h5>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title"></h3>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

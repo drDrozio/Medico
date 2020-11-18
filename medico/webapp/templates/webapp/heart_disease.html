@@ -1,0 +1,264 @@
+
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+  <form method="POST">
+    {% csrf_token %}
+    <br>
+    <div class="form-group row">
+      <label for="age" class="col-sm-2 col-form-label">Age</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="age" placeholder="age" name="age">
+      </div>
+    </div>
+    <!-- sex -->
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Sex</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sex" id="gridRadios1" value="1" checked>
+            <label class="form-check-label" for="gridRadios1">
+              Males
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sex" id="gridRadios2" value="0">
+            <label class="form-check-label" for="gridRadios2">
+              Female
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- cp -->
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">CP</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="cp" id="gridRadios1" value="1" checked>
+            <label class="form-check-label" for="gridRadios1">
+              1
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="cp" id="gridRadios2" value="2">
+            <label class="form-check-label" for="gridRadios2">
+              2
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="cp" id="gridRadios2" value="3">
+            <label class="form-check-label" for="gridRadios2">
+              3
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="cp" id="gridRadios2" value="4">
+            <label class="form-check-label" for="gridRadios2">
+              4
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- restbp -->
+    <br>
+    <div class="form-group row">
+      <label for="restbp" class="col-sm-2 col-form-label">Rest BP</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="restbp" placeholder="restbp" name="restbp">
+      </div>
+    </div>
+
+    <!-- chol -->
+    <br>
+    <div class="form-group row">
+      <label for="chol" class="col-sm-2 col-form-label">Chol</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="chol" placeholder="chol" name="chol">
+      </div>
+    </div>
+
+    <!-- fbs -->
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">FBS</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="fbs" id="gridRadios1" value="1" checked>
+            <label class="form-check-label" for="gridRadios1">
+              1
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="fbs" id="gridRadios2" value="0">
+            <label class="form-check-label" for="gridRadios2">
+              0
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- restecg -->
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Rest ECG</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="restecg" id="gridRadios1" value="0" checked>
+            <label class="form-check-label" for="gridRadios1">
+              0
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="restecg" id="gridRadios2" value="1">
+            <label class="form-check-label" for="gridRadios2">
+              1
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="restecg" id="gridRadios2" value="2">
+            <label class="form-check-label" for="gridRadios2">
+              2
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- thalach -->
+    <br>
+    <div class="form-group row">
+      <label for="thalach" class="col-sm-2 col-form-label">Thalach</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="thalach" placeholder="thalach" name="thalach">
+      </div>
+    </div>
+
+    <!-- Exang -->
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Exang</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exang" id="gridRadios1" value="1" checked>
+            <label class="form-check-label" for="gridRadios1">
+              1
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exang" id="gridRadios2" value="0">
+            <label class="form-check-label" for="gridRadios2">
+              0
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+
+    <!-- oldpeak -->
+    <br>
+    <div class="form-group row">
+      <label for="oldpeak" class="col-sm-2 col-form-label">Rest BP</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="oldpeak" placeholder="oldpeak" name="oldpeak">
+      </div>
+    </div>
+
+    <!-- slope -->
+    <br>
+    <div class="form-group row">
+      <label for="slope" class="col-sm-2 col-form-label">Slope</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="slope" placeholder="slope" name="slope">
+      </div>
+    </div>
+
+    <!-- CA -->
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">CA</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ca" id="gridRadios1" value="0" checked>
+            <label class="form-check-label" for="gridRadios1">
+              0
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ca" id="gridRadios2" value="1">
+            <label class="form-check-label" for="gridRadios2">
+              1
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ca" id="gridRadios2" value="2">
+            <label class="form-check-label" for="gridRadios2">
+              2
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ca" id="gridRadios2" value="3">
+            <label class="form-check-label" for="gridRadios2">
+              3
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ca" id="gridRadios2" value="?">
+            <label class="form-check-label" for="gridRadios2">
+              None
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Thal -->
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Thal</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="thal" id="gridRadios1" value="3" checked>
+            <label class="form-check-label" for="gridRadios1">
+              3
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="thal" id="gridRadios2" value="6">
+            <label class="form-check-label" for="gridRadios2">
+              6
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="thal" id="gridRadios2" value="7">
+            <label class="form-check-label" for="gridRadios2">
+              7
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="thal" id="gridRadios2" value="?">
+            <label class="form-check-label" for="gridRadios2">
+              None
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Submit Button -->
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+    
+{% endblock %}
+

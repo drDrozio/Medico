@@ -54,8 +54,8 @@ def heart_disease(request):
 		X_encoded = heart_disease_ml.preprocess(dic)
 		pred = heart_disease_ml.predict_disease(X_encoded)
 		context = {'pred':pred}
-		print(pred)
-		render(request,'webapp/result.html',context)
+		print("Prediction : ",pred)
+		return render(request,'webapp/result.html',context)
 
 	context = {}
 

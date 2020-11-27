@@ -22,26 +22,100 @@ import joblib
 class heart_disease_ml():
 	def preprocess(dic):
 		x = {}
-		x['age'] = dic['age']
-		x['sex'] = dic['sex']
-		x['cp'] = dic['cp']
-		x['restbp'] = dic['restbp']
-		x['chol'] = dic['chol']
-		x['fbs'] = dic['fbs']
-		x['restecg'] = dic['restecg']
-		x['thalach'] = dic['thalach']
-		x['exang'] = dic['exang']
-		x['oldpeak'] = dic['oldpeak']
-		x['slope'] = dic['slope']
+		#Age
+		x['age'] = np.float(dic['age'])
+		#Sex
+		x['sex'] = np.float(dic['sex'])
+		#RestBP
+		x['restbp'] = np.float(dic['restbp'])
+		#Chol
+		x['chol'] = np.float(dic['chol'])
+		#FBS
+		x['fbs'] = np.float(dic['fbs'])
+		#Thalach
+		x['thalach'] = np.float(dic['thalach'])
+		#Exang
+		x['exang'] = np.float(dic['exang'])
+		#OldPeak
+		x['oldpeak'] = np.float(dic['oldpeak'])
+		#CA
 		x['ca'] = dic['ca']
-		x['thal'] = dic['thal']
+		#CP
+		cp = np.float(dic['cp'])
+		if cp == 1.0:
+			x['cp_1.0'] = 1
+			x['cp_2.0'] = 0
+			x['cp_3.0'] = 0
+			x['cp_4.0'] = 0
+		elif cp == 4.0:
+			x['cp_1.0'] = 0
+			x['cp_2.0'] = 0
+			x['cp_3.0'] = 0
+			x['cp_4.0'] = 1
+		elif cp == 3.0:
+			x['cp_1.0'] = 0
+			x['cp_2.0'] = 0
+			x['cp_3.0'] = 1
+			x['cp_4.0'] = 0
+		else:
+			x['cp_1.0'] = 0
+			x['cp_2.0'] = 1
+			x['cp_3.0'] = 0
+			x['cp_4.0'] = 0
+
+		#RestECG
+		restecg = np.float(dic['restecg'])
+		if restecg == 0.0:
+			x['restecg_0.0'] = 1
+			x['restecg_1.0'] = 0
+			x['restecg_2.0'] = 0
+		elif restecg == 1.0:
+			x['restecg_0.0'] = 0
+			x['restecg_1.0'] = 1
+			x['restecg_2.0'] = 0
+		else:
+			x['restecg_0.0'] = 0
+			x['restecg_1.0'] = 0
+			x['restecg_2.0'] = 1
+
+		#Slope
+		slope = np.float(dic['slope'])
+		if slope == 1.0:
+			x['slope_1.0'] = 1
+			x['slope_2.0'] = 0
+			x['slope_3.0'] = 0
+		elif slope == 2.0:
+			x['slope_1.0'] = 0
+			x['slope_2.0'] = 1
+			x['slope_3.0'] = 0
+		else:
+			x['slope_1.0'] = 0
+			x['slope_2.0'] = 0
+			x['slope_3.0'] = 1
+
+		#thal
+		thal = np.float(dic['thal'])
+		if thal == 3.0:
+			x['thal_3.0'] = 1
+			x['thal_6.0'] = 0
+			x['thal_7.0'] = 0
+		elif thal == 6.0:
+			x['thal_3.0'] = 0
+			x['thal_6.0'] = 1
+			x['thal_7.0'] = 0
+		else:
+			x['thal_3.0'] = 0
+			x['thal_6.0'] = 0
+			x['thal_7.0'] = 1
+
 		X=pd.DataFrame({'x':x}).transpose()
 		return X
 
 	def predict_disease(X):
-		model = joblib.load('ml_models/heart_disease3.pkl')
+		model = pkl.load(open('ml_models/heart_diseaseA1.pkl', 'rb'))
 		pred = model.predict(X)[0]
 		return pred
 
 
 
+ 

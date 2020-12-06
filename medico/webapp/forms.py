@@ -1,17 +1,15 @@
 from django.forms import ModelForm
-from fdjango import forms
-from .models import Patient
-
+from django import forms
+from .models import Details
 #User forms
 from django.contrib.auth.forms import UserCreationForm
 #Importing User from models
 from django.contrib.auth.models import User
 
-class PatientForm(ModelForm):
+class DetailsForm(ModelForm):
 	class Meta:
-		model = Patient
+		model = Details
 		fields = '__all__'
-		exclude = ['user']
 
 class CreateUserForm(UserCreationForm):
 	class Meta:

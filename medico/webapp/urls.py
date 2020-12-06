@@ -9,11 +9,11 @@ urlpatterns = [
     path('register/',views.registerpage,name='registerpage'),
     path('logout/',views.logoutpage,name='logoutpage'),	
 
-    path('create_patient/<str:pk>/',views.create_patient,name='create_patient'),
-    path('update_patient/<str:pk>/',views.update_patient,name='update_patient'),
-    path('delete_patient/<str:pk>/',views.delete_patient,name='delete_patient'),
+    path('patient_form/',views.patient_form,name='patient_form'),
+    path('update_patient/',views.update_patient,name='update_patient'),
+    path('delete_patient/',views.delete_patient,name='delete_patient'),
 
-    path('user/',views.user,name='user'),
+    path('user/<str:pk>/',views.userpage,name='userpage'),
     path('patient/<str:pk_test>/',views.patient,name='patient'),
 
     path('heart_disease/',views.heart_disease,name='heart_disease'),

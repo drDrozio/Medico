@@ -6,6 +6,9 @@
       <div class="container">
         <h1 class="masthead-heading mb-0">Online Multiple Disease Prediction</h1>
         <h2 class="masthead-subheading mb-0">Your Online Physician</h2>
+        <a href="{% url 'patient_form' %}"><h2>Fill the Form</h2></a>
+        <br>
+        <a href="#"><h2>Update</h2></a>
       </div>
     </div>
     <div class="bg-circle-1 bg-circle"></div>
@@ -22,7 +25,7 @@
               <h5 class="card-title">Total Patients</h5>
             </div>
             <div class="card-body">
-              <h3 class="card-title"></h3>
+              <h3 class="card-title">{{total_patients}}</h3>
             </div>
         </div>
       </div>
@@ -48,7 +51,7 @@
               <h5 class="card-title">Total Diseases</h5>
             </div>
             <div class="card-body">
-              <h3 class="card-title"></h3>
+              <h3 class="card-title">1</h3>
             </div>
         </div>
       </div>

@@ -1,0 +1,175 @@
+{% extends 'webapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+	<style type="text/css">
+		body{
+    margin:0;
+    background-color: #38c0db;
+}
+main{
+    background-color: #52b788;
+    width:800px;
+    height:400px;
+    padding:35px;
+    font-size: 1.5em;
+    margin:5% auto;
+    border: 4px solid black;
+    border-bottom: 4px solid #e9c46a;
+    border-top: 4px solid #e9c46a;
+    border-radius: 35px;
+    color:#540b0e;
+}
+span{
+    background-color: rgba(0,0,0,0);
+    border:2px solid #ffba08;
+    padding:5px;
+    
+    
+    border-radius:1.5em;
+    color:white;
+}
+/*    input[type="text"]:focus,input[type="number"]:focus{
+
+    background-color: #fff;
+    border-color: #d00000;
+    color:rgb(44, 9, 44);
+    
+} */
+h1{
+    margin: 0 auto;
+    color:#3e1f47 ;
+    text-decoration: underline;
+}
+#lol1{
+    text-align: center;
+}
+
+img{
+    display:inline-block;
+    width:90px;
+    height:90px;
+    background-size: contain;
+}
+div{
+    text-align: center;
+    margin:12px
+}
+button{
+    background: none;
+    color:#ffa260;
+    border:2px solid;
+    padding:.5em .5em;
+    font-size:1em;
+    transition:all 0.125s;
+
+}
+button:hover{
+    border-color: #f1ff5c;
+    color:white;
+    box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+    transform:translateY(-0.25em);
+    cursor:pointer;
+}
+
+.dataup{
+    display:inline-block;
+}
+
+#delete{
+    border-color:darkred;
+    color:darkred;
+}
+#delete:hover{
+    border-color: #f1ff5c;
+    color:white;
+    box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+    transform:translateY(-0.25em);
+    cursor:pointer;
+}
+	</style>
+
+	<body>
+
+
+		<main>
+
+        <h1>User Details</h1>
+
+
+        <div id="lol1">
+            <label for="name">Name:</label>
+            <span id="name"> Hrithik Raina </span>
+            <!--(example, yahan par database se jaise daalega vo daal diyo), vaise hi har span pe ive given a name, so input the relevant info-->
+        </div>
+
+
+        <img src=""> <!-- yahan image jahan se import karega vo aayegi -->
+
+        <div id="agegender">
+            <label for="age">Age:</label>
+            <span id="age"> </span>
+
+            <label for="gender">Gender:</label>
+            <span id="gender"> </span>
+        </div>
+
+        <div>
+            <label for="bloodgroup">Blood Group:</label>
+            <span id="bloodgroup"> </span>
+
+            <label for="height">Height(cm):</label>
+            <span id="height"> </span>
+        </div>
+
+        <div>
+            <label for="weight">Weight(kg):</label>
+            <span id="weight"> </span>
+
+            <label for="bp">Blood Pressure:</label>
+            <span id="bp"> </span>
+        </div>
+
+        <div id="div3">
+            <label for="temperature">Temperature:</label>
+            <span id="temperature"> </span>
+
+            <label for="history">History:</label>
+            <!-- Kis cheez ki history?????????????? -->
+
+        </div>
+        <DIV>
+            <form class="dataup" action="Display.html">
+                <!-- Ye redirects to form jahan data update hoga -->
+
+                <button id="updatedata">
+                    Update DATA
+                </button>
+
+            </form>
+
+            <form class="dataup" action="">
+                <!-- yahan type what happens when you want to delete the data -->
+                <button id="delete">
+                    DELETE
+                </button>
+            </form>
+        </div>
+
+
+    </main>
+
+		<h1>{{patient.name}}</h1>
+		<h3>{{details.age}}</h3>
+		<h3>{{details.sex}}</h3>
+		<h3>{{details.height}}</h3>
+		<h3>{{details.weight}}</h3>
+		<h3>{{details.bloodgrp}}</h3>
+		<h3>{{details.BP}}</h3>
+		<h3>{{details.temp}}</h3>
+		<h3>{{details.history}}</h3>
+	</body>
+
+{% endblock %}
+

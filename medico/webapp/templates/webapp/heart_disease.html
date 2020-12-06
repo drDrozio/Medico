@@ -2,7 +2,16 @@
 {% extends 'webapp/base.html' %}
 
 {% block content %}
-  <form method="POST">
+
+  
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Heart Disease Possibility Prediction</h1>
+      <p class="lead">Our Algorithm will predict on the scale of 0 to 4 on how susceptible you are to heart disease depending on the health parameters you enter.</p>
+    </div>
+  </div>
+
+  <form method="POST" action="{% url 'heart_disease' %}">
     {% csrf_token %}
     <br>
     <div class="form-group row">

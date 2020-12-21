@@ -10,6 +10,7 @@ from .forms import DetailsForm, CreateUserForm
 from .decorators import unauthenticated_user, admin_it_only
 from .heart_disease import heart_disease_ml
 from .covid_preprocess import preprocess
+from .liver import liver_preprocess
 
 # Create your views here.
 @login_required(login_url='loginpage')
@@ -136,6 +137,9 @@ def covid(request):
 		print(preprocess())
 	context = {}
 	return render(request,'webapp/covid_form.html',context)
+
+def liver(request):
+	return liver_preprocess()
 
 @login_required(login_url='loginpage')
 def result(request):

@@ -17,4 +17,6 @@ urlpatterns = [
     path('patient/<str:pk_test>/',views.patient,name='patient'),
 
     path('heart_disease/',views.heart_disease,name='heart_disease'),
+    path('covid/',views.covid,name='covid'),
+
 ]

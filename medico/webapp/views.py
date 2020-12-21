@@ -9,6 +9,7 @@ from .forms import DetailsForm, CreateUserForm
 #Decorators for user roles
 from .decorators import unauthenticated_user, admin_it_only
 from .heart_disease import heart_disease_ml
+from .covid_preprocess import preprocess
 
 # Create your views here.
 @login_required(login_url='loginpage')
@@ -127,6 +128,14 @@ def heart_disease(request):
 
 	context = {}
 	return render(request,'webapp/heart_disease.html',context)
+
+def covid(request):
+	#prediction = pred(X)
+	if request.method == 'POST':
+		print(request.POST)
+		print(preprocess())
+	context = {}
+	return render(request,'webapp/covid_form.html',context)
 
 @login_required(login_url='loginpage')
 def result(request):

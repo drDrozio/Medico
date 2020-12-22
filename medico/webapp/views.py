@@ -11,7 +11,9 @@ from .decorators import unauthenticated_user, admin_it_only
 from .heart_disease import heart_disease_ml
 from .covid_preprocess import preprocess
 from .liver import liver_preprocess
+from django.core.files.storage import FileSystemStorage
 import tensorflow as tf
+from tensorflow import Graph
 
 # Create your views here.
 @login_required(login_url='loginpage')
@@ -140,7 +142,14 @@ def covid(request):
 	#prediction = pred(X)
 	if request.method == 'POST':
 		print(request.POST)
-		print(preprocess())
+		print (request.POST.dict())
+		fileObj=request.FILES['filePath']
+		fs=FileSystemStorage()
+		filePathName=fs.save(fileObj.name,fileObj)
+		filePathName=fs.url(filePathName)
+		context={'filePathName':filePathName}
+		return render(request,'webapp/covid_form.html',context) 
+		#print(preprocess())
 	context = {}
 	return render(request,'webapp/covid_form.html',context)
 

@@ -11,6 +11,7 @@ from .decorators import unauthenticated_user, admin_it_only
 from .heart_disease import heart_disease_ml
 from .covid_preprocess import preprocess
 from .liver import liver_preprocess
+import tensorflow as tf
 
 # Create your views here.
 @login_required(login_url='loginpage')
@@ -18,6 +19,11 @@ def home(request):
 	patient = Patient.objects.all()
 	total_patients = patient.count()
 
+	#Testing tf
+	a=tf.constant(7)
+	b=tf.constant(10)
+	c = tf.add(a,b)
+	print(c)
 
 	context = {'total_patients' : total_patients, 'patient':patient}
 	return render(request,'webapp/home.html',context)

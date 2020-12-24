@@ -4,9 +4,14 @@
 {% block content %}
 
   
-<h2>Uplaod Image for Classification</h2>
 
-    
+<!-- <h2>Uplaod Image for Classification</h2> -->
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">COVID-19 Possibility Prediction</h1>
+      <p class="lead">You are required to upload your Chest X-Ray and our algorithm will predict if you need to get tested for Covid-19</p>
+    </div>
+  </div>
 <br>
    
 <form method="post" enctype="multipart/form-data" action="{% url 'covid' %}">
@@ -15,11 +20,16 @@
  <div class="col-md-4 col-sm-4"><label for="fname">Upload Image File Here:</label> </div> <input name="filePath" type="file"><br><br>
  <br>
 
- 
- <input type="submit" value="Submit" ></div>
+ </div>
+ <!--<input type="submit" value="Submit" >-->
+ <div class="form-group row">
+  <div class="col-sm-10">
+  <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </div>
 
- <h2>The classification of the image is {{predictedLabel}}</h2>
- <img src={{filePathName}} alt='imagename'>
+ <h2>Result:-{{message}}</h2>
+ <img src={{filePathName}} alt='imagename' style="width:500px;height:600px;">
  {{filePathName}}
  </form>
 <br>

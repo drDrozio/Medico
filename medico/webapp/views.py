@@ -9,11 +9,14 @@ from .forms import DetailsForm, CreateUserForm
 #Decorators for user roles
 from .decorators import unauthenticated_user, admin_it_only
 from .heart_disease import heart_disease_ml
-from .covid_preprocess import preprocess
+from .covid_preprocess import covid_ml
 from .liver import liver_preprocess
 from django.core.files.storage import FileSystemStorage
 import tensorflow as tf
 from tensorflow import Graph
+import tensorflow.keras
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.models import load_model
 
 # Create your views here.
 @login_required(login_url='loginpage')
@@ -143,13 +146,25 @@ def covid(request):
 	if request.method == 'POST':
 		print(request.POST)
 		print (request.POST.dict())
+		#dic = request.POST
 		fileObj=request.FILES['filePath']
 		fs=FileSystemStorage()
 		filePathName=fs.save(fileObj.name,fileObj)
 		filePathName=fs.url(filePathName)
-		context={'filePathName':filePathName}
-		return render(request,'webapp/covid_form.html',context) 
-		#print(preprocess())
+		print(filePathName)
+		testimage='./static'+filePathName
+		print(testimage)
+		#testimage=filePathName
+		image_final=covid_ml.preprocess(testimage)
+		ans=covid_ml.prediction_disease(image_final) 
+		if ans==0:
+			message='You should get tested for Covid-19 '
+		if ans==1:
+			message='You seems to be Ok '
+		context={'filePathName':filePathName,'message' : message}
+		return render(request,'webapp/covid_form.html',context)
+		
+		
 	context = {}
 	return render(request,'webapp/covid_form.html',context)
 
